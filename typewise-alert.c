@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 BatteryLimit_s BatteryLimit[3] = {{0,35},{0,45},{0,40}};
+printChargeLevel_Mail_s printChargeLevel_Mail[3] = {charge_Normal,charge_TooLow,charge_TooHigh};
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
@@ -37,18 +38,26 @@ void sendToController(BreachType breachType) {
   printf("%x : %x\n", header, breachType);
 }
 
-void sendToEmail(BreachType breachType) {
-  const char* recepient = "a.b@c.com";
-  switch(breachType) {
-    case TOO_LOW:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too low\n");
-      break;
-    case TOO_HIGH:
-      printf("To: %s\n", recepient);
-      printf("Hi, the temperature is too high\n");
-      break;
-    case NORMAL:
-      break;
-  }
+void sendToEmail(BreachType breachType) 
+{  
+  printChargeLevel_Mail[breachType].printChargeLevel();
+}
+
+void charge_TooLow(void)
+{
+	const char* recepient = "a.b@c.com";
+	printf("To: %s\n", recepient);
+    printf("Hi, the temperature is too low\n");
+}
+
+void charge_TooHigh(void)
+{
+	const char* recepient = "a.b@c.com";
+	printf("To: %s\n", recepient);
+    printf("Hi, the temperature is too high\n");
+}
+
+void charge_Normal(void)
+{
+	//Do Nothing
 }
