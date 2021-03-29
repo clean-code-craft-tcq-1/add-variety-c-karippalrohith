@@ -30,8 +30,17 @@ typedef struct {
 	int upperLimit;
 }BatteryLimit_s;
 
+typedef struct 
+{
+   int (*printChargeLevel)();
+}printChargeLevel_Mail_s;
+
 void checkAndAlert(
   AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
+
+void charge_TooLow(void);
+void charge_TooHigh(void);
+void charge_Normal(void);
