@@ -32,7 +32,7 @@ typedef struct {
 
 typedef struct 
 {
-   int (*printChargeLevel)();
+   void (*printChargeLevel)();
 }printChargeLevel_Mail_s;
 
 void checkAndAlert(
