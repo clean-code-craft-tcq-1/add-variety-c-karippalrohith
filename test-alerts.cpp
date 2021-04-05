@@ -43,7 +43,7 @@ TEST_CASE("Passive Cooling system with Normal temp and O/P fed to mail") {
 	REQUIRE(Alert_Status_Output.breachType == NORMAL);
 }
 
-TEST_CASE("Passive Cooling system with Low temp and O/P fed to controller") {
+TEST_CASE("Passive Cooling system with Low temp and O/P fed to mail") {
 	
 	Alert_Status_s Alert_Status_Output = {NO_PRINT_DONE,DEFAULT_BREACH};
 	BatteryCharacter batteryCharacter = {PASSIVE_COOLING,"Brand_TCQ"};
@@ -53,7 +53,7 @@ TEST_CASE("Passive Cooling system with Low temp and O/P fed to controller") {
 	REQUIRE(Alert_Status_Output.breachType == TOO_LOW);
 }
 
-TEST_CASE("Passive Cooling system with High temp and O/P fed to controller") {
+TEST_CASE("Passive Cooling system with High temp and O/P fed to mail") {
 	
 	Alert_Status_s Alert_Status_Output = {NO_PRINT_DONE,DEFAULT_BREACH};
 	BatteryCharacter batteryCharacter = {PASSIVE_COOLING,"Brand_TCQ"};
@@ -63,7 +63,7 @@ TEST_CASE("Passive Cooling system with High temp and O/P fed to controller") {
 	REQUIRE(Alert_Status_Output.breachType == TOO_HIGH);
 }
 
-TEST_CASE("Passive Cooling system with Normal temp and O/P fed to mail") {
+TEST_CASE("Passive Cooling system with Normal temp and O/P fed to console") {
 	
 	Alert_Status_s Alert_Status_Output = {NO_PRINT_DONE,DEFAULT_BREACH};
 	BatteryCharacter batteryCharacter = {PASSIVE_COOLING,"Brand_TCQ"};
@@ -73,7 +73,7 @@ TEST_CASE("Passive Cooling system with Normal temp and O/P fed to mail") {
 	REQUIRE(Alert_Status_Output.breachType == NORMAL);
 }
 
-TEST_CASE("Passive Cooling system with Low temp and O/P fed to controller") {
+TEST_CASE("Passive Cooling system with Low temp and O/P fed to console") {
 	
 	Alert_Status_s Alert_Status_Output = {NO_PRINT_DONE,DEFAULT_BREACH};
 	BatteryCharacter batteryCharacter = {PASSIVE_COOLING,"Brand_TCQ"};
@@ -83,7 +83,7 @@ TEST_CASE("Passive Cooling system with Low temp and O/P fed to controller") {
 	REQUIRE(Alert_Status_Output.breachType == TOO_LOW);
 }
 
-TEST_CASE("Passive Cooling system with High temp and O/P fed to controller") {
+TEST_CASE("Passive Cooling system with High temp and O/P fed to console") {
 	
 	Alert_Status_s Alert_Status_Output = {NO_PRINT_DONE,DEFAULT_BREACH};
 	BatteryCharacter batteryCharacter = {PASSIVE_COOLING,"Brand_TCQ"};
