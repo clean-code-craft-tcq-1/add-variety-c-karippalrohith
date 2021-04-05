@@ -5,7 +5,7 @@ BatteryLimit_s BatteryLimit[3] = {{0,35},{0,45},{0,40}};
 printChargeLevel_Mail_s printChargeLevel_Mail[3] = {charge_Normal,charge_TooLow,charge_TooHigh};
 alert_Target_s alert_Target[3] = {sendToController,sendToEmail,sendToConsole};
 
-BreachType breachType_Status = DEFAULT;
+BreachType breachType_Status = DEFAULT_BREACH;
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
