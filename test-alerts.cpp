@@ -8,8 +8,11 @@ TEST_CASE("infers the breach according to limits") {
 }
 
 TEST_CASE("Passive Cooling system with Normal temp and O/P fed to controller") {
-	Alert_Print_Status = NO_PRINT_DONE;
+	
+	Alert_Status_s Alert_Status_Output = {NO_PRINT_DONE,DEFAULT_BREACH};
 	BatteryCharacter batteryCharacter = {PASSIVE_COOLING,"Brand_TCQ"};
-	REQUIRE(checkAndAlert(TO_CONTROLLER, batteryCharacter, 20) == NORMAL);
-	REQUIRE(Alert_Print_Status == PRINTED_IN_CONTROLLER);
+	
+	Alert_Status_Output = checkAndAlert(TO_CONTROLLER, batteryCharacter, 20);
+	REQUIRE(Alert_Status_Output.Alert_Print_Status == PRINTED_IN_CONTROLLER);
+	REQUIRE(Alert_Status_Output.breachType == NORMAL);
 }
