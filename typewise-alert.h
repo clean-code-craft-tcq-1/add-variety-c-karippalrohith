@@ -10,7 +10,7 @@ typedef enum {
   NORMAL,
   TOO_LOW,
   TOO_HIGH,
-  DEFAULT
+  DEFAULT_BREACH
 } BreachType;
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
@@ -20,7 +20,7 @@ typedef enum {
   TO_CONTROLLER,
   TO_EMAIL,
   TO_CONSOLE,
-  DEFAULT
+  DEFAULT_TARGET
 } AlertTarget;
 
 typedef enum {
