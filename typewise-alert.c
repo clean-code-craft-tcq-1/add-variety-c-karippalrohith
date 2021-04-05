@@ -3,6 +3,7 @@
 
 BatteryLimit_s BatteryLimit[3] = {{0,35},{0,45},{0,40}};
 printChargeLevel_Mail_s printChargeLevel_Mail[3] = {charge_Normal,charge_TooLow,charge_TooHigh};
+alert_Target_s alert_Target[3] = {sendToController,sendToEmail,sendToConsole};
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
@@ -23,14 +24,7 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
 {
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
 
-  switch(alertTarget) {
-    case TO_CONTROLLER:
-      sendToController(breachType);
-      break;
-    case TO_EMAIL:
-      sendToEmail(breachType);
-      break;
-  }
+	alert_Target[alertTarget].alertTargetType(breachType);
 }
 
 void sendToController(BreachType breachType) {
@@ -41,6 +35,11 @@ void sendToController(BreachType breachType) {
 void sendToEmail(BreachType breachType) 
 {  
   printChargeLevel_Mail[breachType].printChargeLevel();
+}
+
+void sendToConsole(BreachType breachType) 
+{
+  printf("%x\n", breachType);
 }
 
 void charge_TooLow(void)
