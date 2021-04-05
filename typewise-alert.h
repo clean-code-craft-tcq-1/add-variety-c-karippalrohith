@@ -1,3 +1,6 @@
+#ifndef BMS_TYPE_ALERT_H_
+#define BMS_TYPE_ALERT_H_
+
 #pragma once
 
 typedef enum {
@@ -59,3 +62,5 @@ void sendToConsole(BreachType breachType);
 void charge_TooLow(void);
 void charge_TooHigh(void);
 void charge_Normal(void);
+
+#endif /*BMS_TYPE_ALERT_H_*/
